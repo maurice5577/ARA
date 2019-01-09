@@ -1,0 +1,343 @@
+{
+	"info": {
+		"_postman_id": "fe469d5a-bc6a-4bcb-b6d5-785edf62ad27",
+		"name": "User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "0_Create User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6030f834-c497-4341-9c80-d882c4969b3f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/xml"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"id\": 23, \n\t\"username\": \"GOAT\", \n\t\"firstName\": \"Michael\", \n\t\"lastName\": \"Jordan\", \n\t\"email\": \"mj@gmail.com\", \n\t\"password\": \"Goat23\", \n\t\"phone\": \"(201)786-9082\", \n\t\"userStatus\": 1\n}"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1_Create List of Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1614583d-296b-4ea3-b146-6adfe6b43238",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/xml"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[ \n\t{ \n\t\t\"id\": 32, \n\t\t\"username\": \"Magic\", \n\t\t\"firstName\": \"Earvin\", \n\t\t\"lastName\": \"Johnson\", \n\t\t\"email\": \"showtime@lakers.com\", \n\t\t\"password\": \"magic\", \n\t\t\"phone\": \"9198561234\", \n\t\t\"userStatus\": 1 \n\t\t\n\t},\n\t{ \n\t\t\"id\": 33, \n\t\t\"username\": \"Legend\", \n\t\t\"firstName\": \"Larry\", \n\t\t\"lastName\": \"Bird\", \n\t\t\"email\": \"celtics@boston.com\", \n\t\t\"password\": \"bird\", \n\t\t\"phone\": \"9198569999\", \n\t\t\"userStatus\": 2 \n\t\t\n\t},\n\t{ \n\t\t\"id\": 11, \n\t\t\"username\": \"Zeke\", \n\t\t\"firstName\": \"Isiah\", \n\t\t\"lastName\": \"Thomas\", \n\t\t\"email\": \"piston@badboys.com\", \n\t\t\"password\": \"badboy\", \n\t\t\"phone\": \"5034257841\", \n\t\t\"userStatus\": 3 \n\t\t\n\t}\n]"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/createWithArray",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"createWithArray"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2_Logs User into System",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "68b1053b-1964-4d88-babc-3f6d64337d63",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/xml"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/login?username=Magic&password=magic",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Magic"
+						},
+						{
+							"key": "password",
+							"value": "magic"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3_Logout User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ec6bbb7e-254e-4809-9aca-e2859aed7c26",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/xml"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/logout",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4_Get User by User Name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8262d03a-b61c-4eb2-bf5f-7103271bb0da",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/xml"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/Magic",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"Magic"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5_Update User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "56d765f1-b090-48eb-90c9-c0b025ed63a5",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/xml"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"id\": 0, \"username\": \"string\", \"firstName\": \"string\", \"lastName\": \"string\", \"email\": \"string\", \"password\": \"string\", \"phone\": \"string\", \"userStatus\": 0}"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/GOAT",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"GOAT"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6_Delete User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a3fdff45-67b3-4fdb-b5e8-748266110019",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/xml"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/Magic",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"Magic"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
